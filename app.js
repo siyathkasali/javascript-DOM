@@ -8,7 +8,17 @@ var filter = document.getElementById('filter');
 filter.addEventListener('keyup', filterItem);
 
 function filterItem(e){
-    console.log(e.target.value);
+    var filtervalue = e.target.value.toLowerCase();
+    var items = item.getElementsByTagName('li');
+    Array.from(items).forEach(function(liItem){
+        var itemname = liItem.firstChild.textContent;
+        if(itemname.toLowerCase().indexOf(filtervalue) != -1){
+            liItem.style.display = 'block';
+        }else{
+            liItem.style.display = 'none';
+        }
+    })
+    
 }
 
 // Remove button
