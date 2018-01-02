@@ -124,3 +124,25 @@ document.images;
 
 document.scripts;
 document.scripts[0].getAttribute('src');
+
+
+
+// Selectors
+
+const storeThis = document.getElementById();
+// Styling
+storeThis.style.background = 'red';
+
+// Change Text
+storeThis.textContent = 'Hello world';
+storeThis.innerText = '';
+storeThis.innerHTML = '';
+
+document.querySelector('#id');
+document.querySelector('.class');
+document.querySelector('h1');
+
+document.querySelector('ul li').style.color = 'red';
+document.querySelector('li:last-child').style.background = 'green';
+document.querySelector('li:nth-child(2)').style.background = '#4g4g43';
+document.querySelector('li:nth-child(3)').textContent = 'Hello world';
