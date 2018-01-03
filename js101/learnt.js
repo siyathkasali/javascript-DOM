@@ -146,3 +146,13 @@ document.querySelector('ul li').style.color = 'red';
 document.querySelector('li:last-child').style.background = 'green';
 document.querySelector('li:nth-child(2)').style.background = '#4g4g43';
 document.querySelector('li:nth-child(3)').textContent = 'Hello world';
+
+
+// Mulitple Selectors
+document.getElementsByClassName();
+document.querySelector('ul').getElementsByClassName('li');
+
+document.querySelectorAll();
+
+// Node List [Array]
+document.querySelectorAll('li:nth-child(odd)');
