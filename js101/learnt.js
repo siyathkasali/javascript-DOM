@@ -209,3 +209,35 @@ val = itemList.previousElementSibling;
 
 
 console.log(val);
+
+
+
+
+//Adding Items
+
+
+const li = document.createElement('li');
+
+// Adding class
+li.className='collection-item';
+
+//Adding ID
+li.id = 'new-item';
+
+// adding attribute
+li.setAttribute('title', 'Some title');
+
+const link = document.createElement('a');
+link.className = 'delete-item secondary-content';
+
+link.innerHTML = '<i class="material-icons">clear</i>';
+
+li.appendChild(link);
+// Creating text node and adding inside li
+li.appendChild(document.createTextNode('hello world'));
+
+// appending to ul
+
+document.querySelector('ul.collection').appendChild(li);
+console.log(li);
+

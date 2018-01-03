@@ -30,4 +30,3 @@
 //     li.style.background = 'red';
 //     li.style.color = 'white';
 // })
-
