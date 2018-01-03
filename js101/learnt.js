@@ -156,3 +156,56 @@ document.querySelectorAll();
 
 // Node List [Array]
 document.querySelectorAll('li:nth-child(odd)');
+
+
+
+
+
+// Traversing DOM
+
+let val;
+
+const item = document.querySelector('ul');
+const itemList = document.querySelector('li');
+
+// Child Nodes
+val = item.childNodes;
+val = item.childNodes[0];
+
+// Children
+val = item.children;
+val = item.children[1].textContent = 'hello';
+
+//Childeren of children
+val = item.children[0].children[0].children;
+val = item.children[0].id = 'test-id';
+
+
+// // firstChild
+val = item.firstChild;
+val = item.firstElementChild;
+
+// Last Child
+val = item.lastChild;
+val = item.lastElementChild;
+
+// Count child elment
+val = item.childElementCount;
+
+// Get Parent Item
+val = itemList.parentNode;
+val = itemList.parentElement;
+val = itemList.parentElement.parentElement;
+
+// get nextsibling
+val = itemList.nextSibling;
+val = itemList.nextElementSibling;
+val = itemList.nextElementSibling.nextElementSibling;
+val = itemList.nextElementSibling.nextElementSibling.previousElementSibling;
+
+//Previos sibling
+val = itemList.previousSibling;
+val = itemList.previousElementSibling;
+
+
+console.log(val);
