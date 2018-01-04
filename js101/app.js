@@ -30,3 +30,25 @@
 //     li.style.background = 'red';
 //     li.style.color = 'white';
 // })
+
+
+
+// REPLACE ELEMENT
+// Creating an h2 Element
+const newHeading = document.createElement('h2');
+// Creating Id for that element
+newHeading.id = 'task-title';
+//New Text node and appending to newHeading
+newHeading.appendChild(document.createTextNode('New Heading'));
+// geting old header (h5);
+const oldHeader = document.querySelector('#task-title');
+// Getting parent 
+const parentOfoldHeader = document.querySelector('.card-action');
+// Replacing child
+parentOfoldHeader.replaceChild(newHeading, oldHeader);
+
+
+
+
+
+console.log(newHeading);
