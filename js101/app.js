@@ -48,7 +48,40 @@ const parentOfoldHeader = document.querySelector('.card-action');
 parentOfoldHeader.replaceChild(newHeading, oldHeader);
 
 
+// REMOVING CHILD
+
+const lis = document.querySelectorAll('li');
+const item = document.querySelector('ul');
+
+// Remove element
+// lis[2].remove();
+
+// Remove child of a parent
+item.removeChild(lis[1]);
+
+// CLASS & ATTR
+const firstLi = document.querySelector('li');
+const link = firstLi.children[0];
+
+let val;
+val = link.className;
+val = link.classList[0];
+// Add classList
+link.classList.add('new-class');
+// Remove Class List
+link.classList.remove('new-class');
+
+// Adding new attributes
+val = link.getAttribute('href');
+// Set Attributes
+val = link.setAttribute('href', 'https://google.com');
+// has attributes (Check any attributs are there)
+val = link.hasAttribute('test-atrr');
+// remove Attr
+val = link.removeAttribute('new-attr');
+console.log(val);
 
 
 
-console.log(newHeading);
+
+
