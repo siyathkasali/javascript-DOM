@@ -448,3 +448,32 @@ function removeItem(e){
     }
     
 }
+
+
+// STORING DATA LOCAL STORAGE
+
+const form = document.querySelector('form');
+
+
+form.addEventListener('submit', runFunc);
+
+function runFunc(e){
+    e.preventDefault();
+    let inputVal = document.getElementById('task').value;
+
+    let tasks;
+    if(localStorage.getItem('tasks') === null){
+        tasks = [];
+    }else{
+        tasks = JSON.parse(localStorage.getItem('tasks'));
+    }
+
+    tasks.push(inputVal);
+    
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+const showData = JSON.parse(localStorage.getItem('tasks'));
+showData.forEach((task)=>{
+    console.log(task);
+})
