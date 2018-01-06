@@ -241,3 +241,210 @@ li.appendChild(document.createTextNode('hello world'));
 document.querySelector('ul.collection').appendChild(li);
 console.log(li);
 
+
+
+
+// REPLACE ELEMENT
+// Creating an h2 Element
+const newHeading = document.createElement('h2');
+// Creating Id for that element
+newHeading.id = 'task-title';
+//New Text node and appending to newHeading
+newHeading.appendChild(document.createTextNode('New Heading'));
+// geting old header (h5);
+const oldHeader = document.querySelector('#task-title');
+// Getting parent 
+const parentOfoldHeader = document.querySelector('.card-action');
+// Replacing child
+parentOfoldHeader.replaceChild(newHeading, oldHeader);
+
+
+// REMOVING CHILD
+
+const lis = document.querySelectorAll('li');
+const item = document.querySelector('ul');
+
+// Remove element
+// lis[2].remove();
+
+// Remove child of a parent
+item.removeChild(lis[1]);
+
+// CLASS & ATTR
+const firstLi = document.querySelector('li');
+const link = firstLi.children[0];
+
+let val;
+val = link.className;
+val = link.classList[0];
+// Add classList
+link.classList.add('new-class');
+// Remove Class List
+link.classList.remove('new-class');
+
+// Adding new attributes
+val = link.getAttribute('href');
+// Set Attributes
+val = link.setAttribute('href', 'https://google.com');
+// has attributes (Check any attributs are there)
+val = link.hasAttribute('test-atrr');
+// remove Attr
+val = link.removeAttribute('new-attr');
+console.log(val);
+
+
+
+
+// EVENT LISTNER
+
+const eventList = document.querySelector('.clear-tasks');
+eventList.addEventListener('click', (e)=>{
+    e.preventDefault();
+    let val = e.type;
+    val = e.clientX;
+    val = e.clientY;
+    val = e.timeStamp;
+    val = e.offsetX;
+    val = e.offsetY;
+    console.log(val);
+})
+
+
+// OTHER EVENTS
+
+const clearBtn = document.querySelector('.clear-tasks');
+
+const card = document.querySelector('.card');
+const heading = document.querySelector('h5');
+
+// Click Function
+// clearBtn.addEventListener('click', runEvent);
+// // Mouse Down
+// clearBtn.addEventListener('mousedown',runEvent);
+// // Mouse UP
+// clearBtn.addEventListener('mouseup',runEvent);
+// onMouse over
+// card.addEventListener('mouseover', runEvent);
+// // Mouse Out
+// card.addEventListener('mouseout',runEvent);
+// // Mouse Enter
+// card.addEventListener('mouseenter', runEvent);
+// // MouseLeave
+// card.addEventListener('mouseleave', runEvent);
+// mouse move
+card.addEventListener('mousemove', runEvent);
+
+// Double Click
+clearBtn.addEventListener('dblclick', runEvent);
+
+function runEvent(e){
+    console.log(`Event Type: ${e.type}`);
+    heading.textContent = `X: ${e.offsetX} Y: ${e.offsetY}`;
+    document.body.style.background = `rgb( ${e.offsetX}, ${e.offsetY}, 40)`;
+}
+
+
+
+
+
+
+
+
+
+// INPUT EVENTS
+
+const form = document.querySelector('form');
+const taskInput = document.getElementById('task');
+const output = document.querySelector('h5');
+const select = document.querySelector('select');
+
+// Clear Input
+taskInput.value = '';
+
+// Submit
+// form.addEventListener('submit', runTask);
+
+//keydown 
+// taskInput.addEventListener('keydown', runTask);
+
+
+//keyup 
+// taskInput.addEventListener('keyup', runTask);
+
+
+//keypress
+// taskInput.addEventListener('keypress', runTask);
+
+// focus
+// taskInput.addEventListener('focus', runTask);
+
+// Blur
+// taskInput.addEventListener('blur', runTask);
+
+// cut
+// taskInput.addEventListener('cut', runTask);
+
+// Paste
+// taskInput.addEventListener('paste', runTask);
+
+// input
+// taskInput.addEventListener('input', runTask);
+
+// Select Options
+select.addEventListener('change', runTask);
+
+
+
+function runTask(e){
+    
+    console.log(`Event Type: ${e.type}`);
+    console.log(e.target.value);
+    // // Getting input by typing
+    // output.textContent = `${e.target.value}`
+
+    // // Get userinput with submit
+    // console.log(taskInput.value);
+    // // e.preventDefault();
+}
+
+
+
+
+// EVENT BUBBLING
+// const selectUl = document.querySelector('.card-title').addEventListener('click', function(){
+//     console.log('UL');
+// });
+
+// const selectcardcontent = document.querySelector('.card-content').addEventListener('click', ()=>{
+//     console.log('Card Content');
+// })
+
+// const selectCard = document.querySelector('.card').addEventListener('click',()=>{
+//     console.log('Card class');
+// });
+
+// const selectCol = document.querySelector('.col').addEventListener('click', ()=>{
+//     console.log('column');
+// });
+
+
+// EVENT dELIGATION
+
+// const selectClass = document.querySelector('.delete-item');
+// selectClass.addEventListener('click', removeItem);
+
+document.body.addEventListener('click', removeItem);    
+
+function removeItem(e){
+    // console.log(e.target)
+    // console.log('Delete Item');
+    // if(e.target.parentElement.className  === 'delete-item secondary-content'){
+    //     console.log('Hola');
+    // }
+
+    if(e.target.parentElement.classList.contains('delete-item')){
+        console.log('Hola');
+        e.target.parentElement.parentElement.remove();
+    }
+    
+}

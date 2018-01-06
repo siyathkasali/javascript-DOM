@@ -31,57 +31,34 @@
 //     li.style.color = 'white';
 // })
 
+// Set localStorage
+// localStorage.setItem('name','Bhasidh');
+// localStorage.setItem('age',29);
+// // Set SeesionStorage
+// sessionStorage.setItem('name','siyath');
 
+// // Remove Item 
+// // localStorage.removeItem('name');
 
-// REPLACE ELEMENT
-// Creating an h2 Element
-const newHeading = document.createElement('h2');
-// Creating Id for that element
-newHeading.id = 'task-title';
-//New Text node and appending to newHeading
-newHeading.appendChild(document.createTextNode('New Heading'));
-// geting old header (h5);
-const oldHeader = document.querySelector('#task-title');
-// Getting parent 
-const parentOfoldHeader = document.querySelector('.card-action');
-// Replacing child
-parentOfoldHeader.replaceChild(newHeading, oldHeader);
+// // Clear all Items
+// // localStorage.clear();
 
+// const data = localStorage.getItem('name');
+// const data2 = localStorage.getItem('age');
 
-// REMOVING CHILD
-
-const lis = document.querySelectorAll('li');
-const item = document.querySelector('ul');
-
-// Remove element
-// lis[2].remove();
-
-// Remove child of a parent
-item.removeChild(lis[1]);
-
-// CLASS & ATTR
-const firstLi = document.querySelector('li');
-const link = firstLi.children[0];
-
-let val;
-val = link.className;
-val = link.classList[0];
-// Add classList
-link.classList.add('new-class');
-// Remove Class List
-link.classList.remove('new-class');
-
-// Adding new attributes
-val = link.getAttribute('href');
-// Set Attributes
-val = link.setAttribute('href', 'https://google.com');
-// has attributes (Check any attributs are there)
-val = link.hasAttribute('test-atrr');
-// remove Attr
-val = link.removeAttribute('new-attr');
-console.log(val);
+// console.log(data, data2);
 
 
 
+const form = document.querySelector('form');
+
+form.addEventListener('submit', runTask)
 
 
+function runTask(e){
+    e.preventDefault();
+    const storeInput = document.getElementById('task').value;
+    localStorage.setItem('name', storeInput);
+}
+
+else
