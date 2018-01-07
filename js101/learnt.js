@@ -477,3 +477,35 @@ const showData = JSON.parse(localStorage.getItem('tasks'));
 showData.forEach((task)=>{
     console.log(task);
 })
+
+
+// DOM Project
+
+
+
+const form = document.querySelector('#task-form');
+form.addEventListener('submit',runtask);
+function runtask(e){
+    e.preventDefault();
+
+    // Get input from value
+    const ip = document.getElementById('task').value;
+
+    // Creating LI Element
+    const newList = document.createElement('li');
+
+    // Creating classname to LI element
+    newList.className = 'collection-item';
+    newList.appendChild(document.createTextNode(ip));
+
+    // InnerLink
+    const aHref = document.createElement('a');
+    aHref.className='delete-item secondary-content';
+    aHref.innerHTML = '<i class="material-icons">clear</i>'
+    newList.appendChild(aHref);
+
+    document.querySelector('ul.collection').appendChild(newList);
+    
+    document.getElementById('task').value = '';
+    console.log(newList);
+}

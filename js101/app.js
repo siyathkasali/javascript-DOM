@@ -49,29 +49,38 @@
 // console.log(data, data2);
 
 
-const form = document.querySelector('#task-form');
-form.addEventListener('submit',runtask);
-function runtask(e){
+const form = document.getElementById('task-form');
+const ul = document.querySelector('ul.collection');
+const clear = document.querySelector('.clear-tasks');
+const filter = document.getElementById('filter');
+form.addEventListener('submit',runFucn);
+
+function runFucn(e){
     e.preventDefault();
-
-    // Get input from value
     const ip = document.getElementById('task').value;
-
-    // Creating LI Element
-    const newList = document.createElement('li');
-
-    // Creating classname to LI element
-    newList.className = 'collection-item';
-    newList.appendChild(document.createTextNode(ip));
-
-    // InnerLink
-    const aHref = document.createElement('a');
-    aHref.className='delete-item secondary-content';
-    aHref.innerHTML = '<i class="material-icons">clear</i>'
-    newList.appendChild(aHref);
-
-    document.querySelector('ul.collection').appendChild(newList);
     
-    document.getElementById('task').value = '';
-    console.log(newList);
+    if(ip === ''){
+        alert('Please add a valid task');
+    }
+    const li = document.createElement('li');
+    li.className = 'collection-item';
+
+    li.appendChild(document.createTextNode(ip));
+
+    const link = document.createElement('a');
+    link.className = 'delete-item  secondary-content';
+    link.innerHTML = '<i class="material-icons">clear</i>';
+    li.appendChild(link);
+    
+    ul.appendChild(li);
+      
+}
+
+ 
+document.body.addEventListener('click', removeItem);
+
+function removeItem(e){
+    if(e.target.parentElement.classList === 'delete-item secondary-content'){
+        console.log('hola');
+    }
 }
