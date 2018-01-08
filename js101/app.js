@@ -50,37 +50,43 @@
 
 
 const form = document.getElementById('task-form');
-const ul = document.querySelector('ul.collection');
-const clear = document.querySelector('.clear-tasks');
-const filter = document.getElementById('filter');
-form.addEventListener('submit',runFucn);
+const ul = document.querySelector('ul');
+const ip = document.getElementById('task');
+const clear = document.getElementById('clear-tasks');
 
-function runFucn(e){
+
+function loadEvents(){
+    form.addEventListener('submit', runFunc);
+    clear.addEventListener('click', clearTask);
+}
+
+loadEvents();
+
+function runFunc(e){
     e.preventDefault();
-    const ip = document.getElementById('task').value;
     
-    if(ip === ''){
-        alert('Please add a valid task');
-    }
+    if(ip.value === ''){
+        alert('please enter a valid task');
+    }else{
+    // Creating an element
     const li = document.createElement('li');
     li.className = 'collection-item';
-
-    li.appendChild(document.createTextNode(ip));
-
+    
+    li.appendChild(document.createTextNode(ip.value));
+    
     const link = document.createElement('a');
     link.className = 'delete-item  secondary-content';
     link.innerHTML = '<i class="material-icons">clear</i>';
+
     li.appendChild(link);
     
     ul.appendChild(li);
-      
+
+    ip.value = '';
+    }
 }
 
- 
-document.body.addEventListener('click', removeItem);
 
-function removeItem(e){
-    if(e.target.parentElement.classList === 'delete-item secondary-content'){
-        console.log('hola');
-    }
+function clearTask(){
+    ul.innerHTML = '';
 }

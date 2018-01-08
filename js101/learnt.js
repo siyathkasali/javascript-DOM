@@ -509,3 +509,41 @@ function runtask(e){
     document.getElementById('task').value = '';
     console.log(newList);
 }
+
+
+//Again the same just made a copy
+ const form = document.getElementById('task-form');
+const ul = document.querySelector('ul.collection');
+const clear = document.querySelector('.clear-tasks');
+const filter = document.getElementById('filter');
+form.addEventListener('submit',runFucn);
+
+function runFucn(e){
+    e.preventDefault();
+    const ip = document.getElementById('task').value;
+    
+    if(ip === ''){
+        alert('Please add a valid task');
+    }
+    const li = document.createElement('li');
+    li.className = 'collection-item';
+
+    li.appendChild(document.createTextNode(ip));
+
+    const link = document.createElement('a');
+    link.className = 'delete-item  secondary-content';
+    link.innerHTML = '<i class="material-icons">clear</i>';
+    li.appendChild(link);
+    
+    ul.appendChild(li);
+      
+}
+
+ 
+document.body.addEventListener('click', removeItem);
+
+function removeItem(e){
+    if(e.target.parentElement.classList === 'delete-item secondary-content'){
+        console.log('hola');
+    }
+}

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,50 +10,60 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
 </head>
+
 <body>
     <div class="container">
         <div class="row">
             <div class="col s12">
-              <div id="main" class="card">
-                <div class="card-content">
-                  <h1 class="card-title">Task List</h1>
-                  <div class="row">
-                      <form id="task-form">
-                          <div class="input-field col s12">
-                              <input type="text" name="task" id="task" >
-                              <label for="Task">New Task</label>
-                              <input type="submit" class="btn" value="Add Task">
-                          </div>
-                      </form>
-                </div>
-              </div>
-              <div class="card-action">
-                  <h5 id="task-title">Tasks</h5>
-                  <div class="input-field col s12">
-                        <input type="text" name="filter" id="filter" class="validate">
-                        <label for="Filter">Filter</label>
-                    </div>  
-                    <ul class="collection">
+                <div id="main" class="card">
+                    <div class="card-content">
+                        <h1 class="card-title">Task List</h1>
+                        <div class="row">
+                            <form id="task-form">
+                                <div class="input-field col s12">
+                                    <input type="text" name="task" id="task">
+                                    <label for="Task">New Task</label>
+                                    <input type="submit" class="btn" value="Add Task">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <h5 id="task-title">Tasks</h5>
+                        <div class="input-field col s12">
+                            <input type="text" name="filter" id="filter" class="validate">
+                            <label for="Filter">Filter</label>
+                        </div>
+                        <ul class="collection">
                             <li class="collection-item">
-                                Alvin<a href="#!" class="delete-item  secondary-content">
-                                    <i class="material-icons">clear</i></a>
-                                </li>
-                                    <li class="collection-item">
-                                     KAlvin<a href="#!" class="delete-item  secondary-content">
-                                     <i class="material-icons">clear</i></a></li>
-                                      <li class="collection-item">
-                                        DAlvin<a href="#!" class="delete-item secondary-content">
-                                    <i class="material-icons">clear</i></a></li>
-                    </ul>
-                    <a href="#" class="clear-tasks btn black">Clear Task</a>
-              </div>
+                                Alvin
+                                <a href="#!" class="delete-item  secondary-content">
+                                    <i class="material-icons">clear</i>
+                                </a>
+                            </li>
+                            <li class="collection-item">
+                                KAlvin
+                                <a href="#!" class="delete-item  secondary-content">
+                                    <i class="material-icons">clear</i>
+                                </a>
+                            </li>
+                            <li class="collection-item">
+                                DAlvin
+                                <a href="#!" class="delete-item secondary-content">
+                                    <i class="material-icons">clear</i>
+                                </a>
+                            </li>
+                        </ul>
+                        <a href="#" class="clear-tasks btn black">Clear Task</a>
+                    </div>
+                </div>
             </div>
-          </div>
-       
-    </div>
+
+        </div>
     </div>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="app.js"></script>
 </body>
+
 </html>
