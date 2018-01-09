@@ -50,7 +50,7 @@
 
 
 const form = document.getElementById('task-form');
-const ul = document.querySelector('ul');
+const ul = document.querySelector('.collection');
 const ip = document.getElementById('task');
 const clear = document.querySelector('.clear-tasks');
 
@@ -58,7 +58,7 @@ const clear = document.querySelector('.clear-tasks');
 function loadEvents(){
     form.addEventListener('submit', runFunc);
     clear.addEventListener('click', clearTask);
-    ip.addEventListener('click', removeTask);
+    ul.addEventListener('click', removeTask);
 }
 
 loadEvents();
@@ -87,15 +87,22 @@ function runFunc(e){
     }
 }
 
-// Clear task
-function clearTask(){
-    ul.innerHTML = '';
-}
-
 // Remove Single task
-
 function removeTask(e){
-    if(e.target.className.contains('material-icons')){
-        alert('hola');
+    if(e.target.parentElement.classList.contains('delete-item')){
+        if(confirm('Are you sure')){
+            e.target.parentElement.parentElement.remove();
+        }
+        
     }
 }
+
+// Clear task
+function clearTask(){
+    // ul.innerHTML = '';
+    while(ul.firstChild){
+        ul.removeChild(ul.firstChild);
+    }
+}
+
+
