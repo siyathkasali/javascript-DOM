@@ -1,7 +1,15 @@
-document.getElementById('loan-form').addEventListener('submit', calculateLoan);
+document.getElementById('loan-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  // Hide results 
+  document.getElementById('results').style.display='none';
+  // Show loader
+  document.getElementById('loader').style.display='block';
+  setTimeout(calculateLoan,1000);
+
+  
+});
 
 function calculateLoan(e){
-  e.preventDefault();
   const amount = document.getElementById('amount');
   const interest = document.getElementById('interest')
   const years = document.getElementById('years');
@@ -21,8 +29,12 @@ function calculateLoan(e){
     monthlyPayment.value = monthly.toFixed(2);
     totalPayment.value = (monthly * calculatedPayments).toFixed(2);
     totalIntrest.value = ((monthly* calculatedPayments) - principal).toFixed(2);
+    document.getElementById('results').style.display='block';
+    document.getElementById('loader').style.display='none';
   }else{
    showError('Please enter a valid numbers');
+   document.getElementById('results').style.display='none';
+    document.getElementById('loader').style.display='none';
   }
 
 }
@@ -30,8 +42,18 @@ function calculateLoan(e){
 function showError(error){
   const errorDiv = document.createElement('div');
   // Get elements
-  const card = document.createElement
+  const card = document.querySelector('.card');
+  const heading = document.querySelector('.heading');
+  
   errorDiv.className = 'alert alert-danger';
   errorDiv.appendChild(document.createTextNode(error));
 
+  // insert 
+
+  card.insertBefore(errorDiv, heading);
+  setTimeout(clearError, 3000);
+}
+
+function clearError(){
+  document.querySelector('.alert').remove();
 }
