@@ -31,14 +31,30 @@ const game = document.getElementById('game'),
             }
 
             if(inVal === winingNum){
-                guessInput.disabled = true;
-                guessInput.style.border = '1px solid green';
-                notification(`yup won ${winingNum} is correct`, 'green');
+                gameOver(true,`yup won ${winingNum} is correct`);
             }else{
-                guessesLeft--;
-                notification(`you have only ${guessesLeft} guess left out of 3`, 'red');
+                guessesLeft -= 1;
+
+                if(guessesLeft === 0){
+                    gameOver(false, `Opps Lost, Winning Number is ${winingNum}`)
+                }else{
+                    guessInput.value = '';
+                    guessInput.style.border = '1px solid red';
+                    notification(`${inVal} is not correct, ${guessesLeft} guess left`, 'red');
+                }
+
             }
       }
+
+      
+      function gameOver(won,msg){
+        let color;
+        won === true ? color = 'green' : color = 'red'; 
+       guessInput.disabled = true;
+       message.style.color = color;
+       guessInput.style.borderColor = color;
+       notification(msg);
+     }
 
       function notification(msg,color){
            message.textContent = msg;
