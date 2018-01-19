@@ -8,7 +8,7 @@
 
 let min = 1,
     max = 10,
-    winingNum = 5;
+    winingNum = getRandomnum(min,max);
     guessesLeft = 3;
 
 const game = document.getElementById('game'),
@@ -18,8 +18,12 @@ const game = document.getElementById('game'),
       guessInput = document.getElementById('guess-input'),
       message = document.querySelector('.message');
 
-      minNumber.textContent = min;
-      maxNumber.textContent = max;
+
+      game.addEventListener('mousedown', function(e){
+        if(e.target.className === 'play-again'){
+            window.location.reload();   
+        }
+      });
 
       guessBtn.addEventListener('click', guessNum);
 
@@ -44,16 +48,21 @@ const game = document.getElementById('game'),
                 }
 
             }
+
       }
 
       
       function gameOver(won,msg){
         let color;
         won === true ? color = 'green' : color = 'red'; 
-       guessInput.disabled = true;
-       message.style.color = color;
-       guessInput.style.borderColor = color;
-       notification(msg);
+        guessInput.disabled = true;
+        message.style.color = color;
+        guessInput.style.borderColor = color;
+        notification(msg);
+
+        // Play Again
+        guessBtn.value = 'Play Again'    ;
+        guessBtn.className = 'play-again';
      }
 
       function notification(msg,color){
@@ -62,3 +71,8 @@ const game = document.getElementById('game'),
       }
 
 
+      function getRandomnum(min,max){
+        return Math.floor(Math.random()*(max - min + 1) + min);
+      }
+
+      
